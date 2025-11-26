@@ -1,17 +1,65 @@
-# quick_service
+# QuickService
 
-A new Flutter project.
+A simple Flutter application that allows users to browse service providers, search by name, and book a service by selecting a date, time slot, and duration.  
+This project was completed as part of a 2-hour Flutter developer technical assessment.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🕒 Time Spent
+Approximately **2 hours**.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🧩 State Management Approach (GetX)
+I used **GetX** for state management due to its simplicity, minimal boilerplate, and reactive programming model.  
+GetX allowed clean separation between UI and logic, while enabling fast UI updates without unnecessary rebuilds.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-"# QuickService" 
+- `ProviderController` manages provider list, search filtering, and loading state.  
+- `BookingController` manages date selection, time slots, unavailable slots, duration, and dynamic price calculation.
+
+---
+
+## 📱 Features Implemented
+
+### ✅ Provider List Screen
+- Displays list of 8–10 mock service providers  
+- Circular profile image  
+- Rating, hourly rate, and verification badge  
+- Search bar with case-insensitive filtering  
+- Loading state with delay  
+- Book button navigates to booking screen  
+- Clean UI, responsive layout  
+
+### ✅ Booking Screen
+- Provider summary card  
+- Date selector (next 7 days)  
+- Time slot selector (6 slots, 2–3 unavailable slots)  
+- Duration selector  
+- Dynamic total price  
+- Confirm booking button (enabled when date + time selected)  
+- Success dialog with booking summary  
+- All logic handled via GetX  
+
+---
+
+## 📂 Project Structure
+lib/
+├─ controllers/
+│ ├─ provider_controller.dart
+│ └─ booking_controller.dart
+│
+├─ models/
+│ └─ provider_model.dart
+│
+├─ screens/
+│ ├─ provider_list_screen.dart
+│ └─ booking_screen.dart
+│
+├─ widgets/
+│ └─ provider_card.dart
+├─ utils/
+│ └─ colorConstant.dart
+│ └─ date_util.dart
+│ └─ loader.dart
+│
+└─ main.dart
