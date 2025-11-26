@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quick_service/screens/booking_service_screen.dart';
 import 'package:quick_service/utils/color_constants.dart';
+import 'package:quick_service/utils/loader.dart';
 import '../controllers/provider_controller.dart';
 import '../widgets/provider_card_widget.dart';
 
-class ProviderListScreen extends StatelessWidget {
-  const ProviderListScreen({super.key});
+class ServiceProviderListScreen extends StatelessWidget {
+  const ServiceProviderListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +37,7 @@ class ProviderListScreen extends StatelessWidget {
               () => Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: TextField(
+                  controller: controller.searchController,
                   onChanged: controller.updateSearch,
                   decoration: InputDecoration(
                     hintText: "Search providers by name...",
@@ -44,8 +46,8 @@ class ProviderListScreen extends StatelessWidget {
                         ? IconButton(
                             icon: const Icon(Icons.clear),
                             onPressed: () {
+                              controller.searchController.clear();
                               controller.updateSearch('');
-                              controller.searchQuery.value = '';
                             },
                           )
                         : null,
@@ -67,7 +69,7 @@ class ProviderListScreen extends StatelessWidget {
             Expanded(
               child: Obx(() {
                 if (controller.isLoading.value) {
-                  return const Center(child: CircularProgressIndicator());
+                  return const Center(child: ColorLoader3());
                 }
 
                 if (controller.filteredProviders.isEmpty) {
@@ -83,7 +85,7 @@ class ProviderListScreen extends StatelessWidget {
                   itemCount: controller.filteredProviders.length,
                   itemBuilder: (context, index) {
                     final provider = controller.filteredProviders[index];
-                    return ProviderCardWidget(
+                    return ServiceProviderCardWidget(
                       provider: provider,
                       onBook: () {
                         // Navigate to booking screen

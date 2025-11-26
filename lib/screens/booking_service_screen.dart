@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:quick_service/controllers/booking_service_controller.dart';
 import 'package:quick_service/utils/color_constants.dart';
+import 'package:quick_service/utils/date_util.dart';
 import '../models/provider_model.dart';
 
 class BookingScreen extends StatelessWidget {
@@ -160,7 +161,7 @@ class BookingScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              _weekday(date),
+                              weekday(date),
                               style: TextStyle(
                                 color: isSelected
                                     ? Colors.white
@@ -313,25 +314,6 @@ class BookingScreen extends StatelessWidget {
                   onPressed: enabled
                       ? () async {
                           await controller.confirmBooking();
-
-                          Get.dialog(
-                            AlertDialog(
-                              title: const Text("Booking Confirmed"),
-                              content: Text(
-                                "${provider.name}\n"
-                                "${_formatDate(controller.selectedDate.value)}\n"
-                                "${controller.selectedTime.value}\n"
-                                "${controller.selectedDuration.value} hour(s)\n"
-                                "Total: \$${controller.totalPrice.toStringAsFixed(0)}",
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () => Get.back(),
-                                  child: const Text("OK"),
-                                ),
-                              ],
-                            ),
-                          );
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
@@ -357,14 +339,5 @@ class BookingScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  String _weekday(DateTime date) {
-    const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    return days[date.weekday - 1];
-  }
-
-  String _formatDate(DateTime date) {
-    return "${_weekday(date)} ${date.day}";
   }
 }

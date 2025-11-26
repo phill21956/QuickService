@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:quick_service/utils/color_constants.dart';
 import '../models/provider_model.dart';
 
-class ProviderCardWidget extends StatelessWidget {
+class ServiceProviderCardWidget extends StatelessWidget {
   final ProviderModel provider;
   final VoidCallback onBook;
 
-  const ProviderCardWidget({
+  const ServiceProviderCardWidget({
     super.key,
     required this.provider,
     required this.onBook,

@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/provider_model.dart';
 
 class ProviderController extends GetxController {
   var searchQuery = ''.obs;
   var isLoading = true.obs;
+  var searchController = TextEditingController();
 
   // Mock Data
   final providers = <ProviderModel>[

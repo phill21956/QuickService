@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'QuickService',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(useMaterial3: true),
-      home: const ProviderListScreen(),
+      home: const ServiceProviderListScreen(),
     );
   }
 }
