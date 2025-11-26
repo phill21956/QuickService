@@ -63,3 +63,13 @@ lib/
 │ └─ loader.dart
 │
 └─ main.dart
+
+---
+
+### ✅ Setup Instructions
+- Clone repository
+- Run `flutter pub get` 
+- Run `flutter run`
+
+  ---
+
