@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:quick_service/screens/booking_service_screen.dart';
 import 'package:quick_service/utils/color_constants.dart';
 import '../controllers/provider_controller.dart';
 import '../widgets/provider_card_widget.dart';
@@ -21,7 +22,7 @@ class ProviderListScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16),
               child: Text(
-                "ServiceConnect",
+                "QuickService",
                 style: TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
@@ -86,7 +87,7 @@ class ProviderListScreen extends StatelessWidget {
                       provider: provider,
                       onBook: () {
                         // Navigate to booking screen
-                        Get.snackbar("Booking", "Go to booking screen");
+                        Get.to(() => BookingScreen(provider: provider));
                       },
                     );
                   },
