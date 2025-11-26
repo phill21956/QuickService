@@ -80,3 +80,10 @@ lib/
 
   ---
 
+  ### ✅ AI Tools used
+- visily [https://app.visily.ai/] - Helped with designing the ui
+- github Copilot - Helped with generating the dummy model data
+
+
+  ---
+
